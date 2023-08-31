@@ -3,11 +3,11 @@
 Review the following guidelines for submitting questions, issues, or changes to this repository.
 
 ## Coding Style
-This SDK follows coding style based on [API Design Guidelines](https://swift.org/documentation/api-design-guidelines/) for source code in the Swift Programming Language.
+This SDK follows coding style based on [Google TypeScript Style Guide]([https://swift.org/documentation/api-design-guidelines](https://google.github.io/styleguide/tsguide.html) for source code in the TypeScript Programming Language.
 
 ## Issues and Questions
 
-If you encounter an issue, have a question or want to suggest an enhancement to the IBM Security Verify WebAuthn Relying Party Server for Swift, you are welcome to submit a [request](https://github.com/ibm-security-verify/webauthn-relying-party-server-swift/issues).
+If you encounter an issue, have a question or want to suggest an enhancement to the  IBM Security Verify Passkey Sample App for web, you are welcome to submit a [request](https://github.com/ibm-security-verify/webauthn-passkey-sample-web/issues).
 Before that, please search for similar issues. It's possible somebody has encountered this issue already.
 
 ## Pull Requests
