@@ -3,7 +3,7 @@
 Review the following guidelines for submitting questions, issues, or changes to this repository.
 
 ## Coding Style
-This SDK follows coding style based on [Google TypeScript Style Guide]([https://swift.org/documentation/api-design-guidelines](https://google.github.io/styleguide/tsguide.html) for source code in the TypeScript Programming Language.
+This SDK follows coding style based on [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html) for source code in the TypeScript Programming Language.
 
 ## Issues and Questions
 
