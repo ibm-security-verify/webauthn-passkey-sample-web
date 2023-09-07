@@ -1,0 +1,9 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: left;
+  min-height: 1vh;
+  max-height: 1vh;
+  padding: 0;
+}
