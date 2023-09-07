@@ -12,6 +12,7 @@ import {
   Form,
   Toggle,
   Row,
+  CodeSnippet
 } from '@carbon/react';
 import { encode, decode } from '../../js/base64url-arraybuffer';
 const base64url = require('base64url');
@@ -284,17 +285,17 @@ const LandingPage = () => {
             <Column md={6} lg={5} sm={5}>
               <Button onClick={handleLogout}>Sign Out</Button>
             </Column>
-            <Column xl={6} lg={5} md={3} sm={2} />
-            <Column lg={4} md={4} sm={2}>
+            <Column xl={6} lg={2} md={3} sm={2} />
+            <Column lg={6} md={4} sm={2}>
               {isDeveloperMode ? (
                 <div className="rectangle-box">
                   <div className="message-list">
                     {messageList.map((message, index) => (
                       <div>
                         <p>{message.title}</p>
-                        <p className="box-text">
-                          {JSON.stringify(message.body)}
-                        </p>
+                        <CodeSnippet>
+                        {JSON.stringify(message.body)}
+                        </CodeSnippet>
                       </div>
                     ))}
                   </div>
@@ -358,17 +359,17 @@ const LandingPage = () => {
               </Form>
             </Column>
 
-            <Column xl={6} lg={5} md={3} sm={2} />
-            <Column lg={4} md={4} sm={2}>
+            <Column xl={6} lg={2} md={3} sm={2} />
+            <Column lg={6} md={4} sm={2}>
               {isDeveloperMode ? (
                 <div className="rectangle-box">
                   <div className="message-list">
                     {messageList.map((message, index) => (
                       <div>
                         <p>{message.title}</p>
-                        <p className="box-text">
-                          {JSON.stringify(message.body)}
-                        </p>
+                        <CodeSnippet>
+                        {JSON.stringify(message.body)}
+                        </CodeSnippet>
                       </div>
                     ))}
                   </div>

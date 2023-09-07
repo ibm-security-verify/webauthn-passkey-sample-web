@@ -58,4 +58,4 @@ EXPOSE 3000
 # ENV RPS_FQDN application-f8.15n1uzmexb0c.au-syd.codeengine.appdomain.cloud
 ENV RPS_FQDN secure.localhost
 ENV SERVER_PORT 5000
-CMD yarn --cwd ./carbon2/carbon-tutorial start --disableHostCheck
+CMD yarn --cwd ./Sources/Passkey start --disableHostCheck

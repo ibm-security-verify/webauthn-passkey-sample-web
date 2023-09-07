@@ -38,13 +38,18 @@ div {
   background-color: #e5e5e5; /* Grey background color */
   height: 25vh; /* 1/3rd of the viewport height */
   display: flex;
-  width: 20vw;
+  width: 90vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  border: 1px solid #ccc;
+
   border-radius: 5px;
+  overflow-x: auto; /* Enable horizontal scrollbar if needed */
+  overflow-y: auto;
+  max-width: 100%; 
+  margin: 0; 
+  padding: 10px;
 }
 
 .box-title {
