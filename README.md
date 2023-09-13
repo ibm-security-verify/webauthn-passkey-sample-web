@@ -1,4 +1,4 @@
-# IBM Security Verify Passkey Sample App
+# IBM Security Verify Sample App for Passkey on Web
 
 An example implementation of Passkeys using native browser functionality and the IBM Security Verify WebAuthn Relying Party Server.
 
