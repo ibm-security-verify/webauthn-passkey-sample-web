@@ -9,6 +9,7 @@ div {
   display: flex;
   justify-content: flex-end; /* Push the toggle switch to the right */
   margin-right: 20px;
+  margin-top: 1vh;
   flex-direction: column;
   align-items: end;
   justify-content: right;
@@ -34,22 +35,54 @@ div {
   display: flex;
   justify-content: flex-end; /* Right-align the Toggle component */
 }
+// .rectangle-box {
+//   background-color: #e5e5e5; /* Grey background color */
+//   height: 25vh; /* 1/3rd of the viewport height */
+//   display: flex;
+//   width: 90vw;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 20px;
+
+//   border-radius: 5px;
+//   overflow-x: auto; /* Enable horizontal scrollbar if needed */
+//   overflow-y: auto;
+//   max-width: 100%; 
+//   margin: 0; 
+//   padding: 10px;
+// }
+
 .rectangle-box {
-  background-color: #e5e5e5; /* Grey background color */
-  height: 25vh; /* 1/3rd of the viewport height */
+  background-color: #e5e5e5;
+  height: 30vh;
   display: flex;
-  width: 90vw;
+  width: 80vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-
   border-radius: 5px;
-  overflow-x: auto; /* Enable horizontal scrollbar if needed */
-  overflow-y: auto;
-  max-width: 100%; 
-  margin: 0; 
-  padding: 10px;
+  overflow-y: auto; 
+  overflow-x: auto;
+  max-width: 120%;
+  margin: 0;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add some spacing between messages */
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-code-snippet {
+  white-space: pre-wrap; /* Wrap text onto new lines */
+  max-width: 90%; /* Ensure the CodeSnippet fits within its container */
 }
 
 .box-title {

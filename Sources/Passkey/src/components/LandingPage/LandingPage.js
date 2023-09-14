@@ -3,11 +3,6 @@ import { Grid, Column } from '@carbon/react';
 import { Breadcrumb, BreadcrumbItem } from '@carbon/react';
 import {
   Button,
-  Tabs,
-  Tab,
-  TabList,
-  TabPanels,
-  TabPanel,
   TextInput,
   Form,
   Toggle,
@@ -15,17 +10,14 @@ import {
   CodeSnippet
 } from '@carbon/react';
 import { encode, decode } from '../../js/base64url-arraybuffer';
-const base64url = require('base64url');
 
 function Message(title, body) {
   this.title = title;
   this.body = body;
 }
+
 let messageList = [];
 
-//var isAuthenticated = false;
-const encoder = new TextEncoder();
-const decoder = new TextDecoder();
 
 const LandingPage = () => {
   useEffect(() => {
@@ -42,8 +34,7 @@ const LandingPage = () => {
         },
         body: JSON.stringify(payload),
       });
-      //console.log("public key credential request options")
-      //console.log(publicKeyCredentialRequestOptions)
+
       if (payload != null) {
         messageList.push(new Message('posted challenge', payload));
       }
@@ -97,9 +88,9 @@ const LandingPage = () => {
           },
           body: JSON.stringify(credentialJSON),
         });
-        if (response.body != null) {
-          messageList.push(new Message('got response: ', response.body));
-        }
+        // if (response.body != null) {
+        //   messageList.push(new Message('got response: ', response.body));
+        // }
         console.log(response.body);
         const data = await response.json();
         if (data.access_token) {
@@ -160,7 +151,7 @@ const LandingPage = () => {
 
       if (credential != null) {
         messageList.push(
-          new Message('attempting creation with : ', modifiedCredential)
+          new Message('attempting creation and registration of : ', modifiedCredential)
         );
       }
       // console.log('posted attestation credential');
@@ -172,27 +163,25 @@ const LandingPage = () => {
       const newCredential = await navigator.credentials
         .create({ publicKey: modifiedCredential })
         .then(async credentialCreate => {
-          if (modifiedCredential != null) {
-            messageList.push(
-              new Message('performing navigator create : ', credentialCreate)
-            );
-          }
+          // if (modifiedCredential != null) {
+          //   messageList.push(
+          //     new Message('performing navigator create : ', modifiedCredential)
+          //   );
+          // }
           // console.log('performing navigator create with ');
           // console.log(credentialCreate);
           const registrationParams = {
             credentialId: credentialCreate.id,
             nickname: username,
-            clientDataJSON: encode(credentialCreate.response.clientDataJSON), //unsure
-            attestationObject: encode(
-              credentialCreate.response.attestationObject
-            ), // unsure
+            clientDataJSON: encode(credentialCreate.response.clientDataJSON),
+            attestationObject: encode(credentialCreate.response.attestationObject),
           };
 
-          if (registrationParams != null) {
-            messageList.push(
-              new Message('attempting registration with : ', registrationParams)
-            );
-          }
+          // if (registrationParams != null) {
+          //   messageList.push(
+          //     new Message('attempting registration with : ', registrationParams)
+          //   );
+          // }
           // console.log('attempting registration with ');
           // console.log(registrationParams);
           const registrationOptions = await fetch('/v1/register', {
@@ -289,17 +278,19 @@ const LandingPage = () => {
             <Column lg={6} md={4} sm={2}>
               {isDeveloperMode ? (
                 <div className="rectangle-box">
-                  <div className="message-list">
-                    {messageList.map((message, index) => (
-                      <div>
-                        <p>{message.title}</p>
-                        <CodeSnippet>
-                        {JSON.stringify(message.body)}
+                <div className="message-list">
+                  {messageList.map((message, index) => (
+                    <div key={index} className="message">
+                      <p>{message.title}</p>
+                      <div className="code-snippet-wrapper">
+                        <CodeSnippet hideCopyButton={true} className="custom-code-snippet">
+                          {JSON.stringify(message.body)} {/* Indent for better readability */}
                         </CodeSnippet>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
+              </div>
               ) : null}
             </Column>
             <Column>
@@ -363,17 +354,19 @@ const LandingPage = () => {
             <Column lg={6} md={4} sm={2}>
               {isDeveloperMode ? (
                 <div className="rectangle-box">
-                  <div className="message-list">
-                    {messageList.map((message, index) => (
-                      <div>
-                        <p>{message.title}</p>
-                        <CodeSnippet>
-                        {JSON.stringify(message.body)}
+                <div className="message-list">
+                  {messageList.map((message, index) => (
+                    <div key={index} className="message">
+                      <p>{message.title}</p>
+                      <div className="code-snippet-wrapper">
+                        <CodeSnippet hideCopyButton={true} className="custom-code-snippet">
+                          {JSON.stringify(message.body)} {/* Indent for better readability */}
                         </CodeSnippet>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
+              </div>
               ) : null}
             </Column>
             <Column>
