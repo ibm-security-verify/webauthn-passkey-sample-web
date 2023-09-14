@@ -269,7 +269,7 @@ const LandingPage = () => {
           <h2 className="landing-page__heading">{username} is authenticated</h2>
         </Column>
 
-        <Column lg={16} md={8} sm={4} className="landing-page__r3">
+        <Column lg={16} md={8} sm={4} xs={1} className="landing-page__r3">
           <Grid>
             <Column md={6} lg={5} sm={5}>
               <Button onClick={handleLogout}>Sign Out</Button>
@@ -277,7 +277,7 @@ const LandingPage = () => {
             <Column xl={6} lg={2} md={3} sm={2} />
             <Column lg={6} md={4} sm={2}>
               {isDeveloperMode ? (
-                <div className="rectangle-box">
+               
                 <div className="message-list">
                   {messageList.map((message, index) => (
                     <div key={index} className="message">
@@ -290,7 +290,7 @@ const LandingPage = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+            
               ) : null}
             </Column>
             <Column>
@@ -353,7 +353,7 @@ const LandingPage = () => {
             <Column xl={6} lg={2} md={3} sm={2} />
             <Column lg={6} md={4} sm={2}>
               {isDeveloperMode ? (
-                <div className="rectangle-box">
+               
                 <div className="message-list">
                   {messageList.map((message, index) => (
                     <div key={index} className="message">
@@ -366,7 +366,7 @@ const LandingPage = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+           
               ) : null}
             </Column>
             <Column>
