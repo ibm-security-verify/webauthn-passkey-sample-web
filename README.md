@@ -39,7 +39,7 @@ After completing the prerequisites,
 The relying party fully qualified domain name (FQDN) which can be obtained from the container hosting environment. For example:
 
 ```
-RP-FQDN=application-8t.12890dj1.au-syd.codeengine.ibm.com
+RPS_FQDN=application-8t.12890dj1.au-syd.codeengine.ibm.com
 ```
 
 `SERVER_PORT`
