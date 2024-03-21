@@ -94,6 +94,9 @@ const LandingPage = () => {
         console.log(response.body);
         const data = await response.json();
         if (data.access_token) {
+          const payloadData = atob(data.id_token.split('.')[1])
+          const claims = JSON.parse(payloadData);
+          setUsername(claims.preferred_username)
           setIsAuthenticated(true);
         }
       } catch (error) {
