@@ -92,11 +92,9 @@ const LandingPage = () => {
         //   messageList.push(new Message('got response: ', response.body));
         // }
         console.log(response.body);
-        const data = await response.json();
+        //const data = await response.json();
 
         // If ISV returns an access token, set the username and authenticated state
-        console.log(response.body);
-        console.log('Response data:', data);
         setUsername("testuser");
         setIsAuthenticated(true);
 
