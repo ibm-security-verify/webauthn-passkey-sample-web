@@ -93,13 +93,20 @@ const LandingPage = () => {
         // }
         console.log(response.body);
         const data = await response.json();
+
+        // If ISV returns an access token, set the username and authenticated state
         if (data.access_token) {
           const payloadData = atob(data.id_token.split('.')[1])
           const claims = JSON.parse(payloadData);
           setUsername(claims.preferred_username)
           setIsAuthenticated(true);
         }
-      } catch (error) {
+        else if ("username" in data.attributes.responseData) {
+          setUsername(data.attributes.responseData.username)
+          setIsAuthenticated(true)
+        }
+
+        } catch (error) {
         // Handle the error
         console.error('Error retrieving credential:', error);
       }
