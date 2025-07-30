@@ -95,8 +95,6 @@ const LandingPage = () => {
         //const data = await response.json();
 
         // If ISV returns an access token, set the username and authenticated state
-        //console.log(response.body);
-        //console.log('Response data:', data);
         setUsername("testuser");
         setIsAuthenticated(true);
 
