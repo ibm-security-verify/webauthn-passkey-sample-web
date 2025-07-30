@@ -100,25 +100,6 @@ const LandingPage = () => {
         setUsername("testuser");
         setIsAuthenticated(true);
 
-
-        // If ISV returns an access token, set the username and authenticated state
-        // if (data.access_token) {
-        //   try {
-        //     const payloadData = atob(data.id_token.split('.')[1]);
-        //     const claims = JSON.parse(payloadData);
-
-        //     if (claims && claims.preferred_username) {
-        //       setUsername(claims.preferred_username);
-        //     } else {
-        //       setUsername("testuser"); // fallback when claims are missing or malformed
-        //     }
-        //   } catch (error) {
-        //     console.warn("Failed to parse payload data:", error);
-        //     setUsername("testuser"); // fallback when decoding fails
-        //   }
-
-        //   setIsAuthenticated(true);
-        // }
        } catch (error) {
         // Handle the error
         console.error('Error retrieving credential:', error);
