@@ -112,8 +112,7 @@ const LandingPage = () => {
 
           setIsAuthenticated(true);
         }
-
-        } catch (error) {
+       } catch (error) {
         // Handle the error
         console.error('Error retrieving credential:', error);
       }

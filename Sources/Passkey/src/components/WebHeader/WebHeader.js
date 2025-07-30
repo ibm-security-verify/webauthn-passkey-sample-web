@@ -27,7 +27,7 @@ const WebHeader = () => (
           isActive={isSideNavExpanded}
         />
         <HeaderName element={Link} to="/" prefix="IBM">
-          Security
+          Passkey
         </HeaderName>
         <HeaderNavigation aria-label="Carbon">
           <HeaderMenuItem element={Link} to="/repos">
@@ -56,7 +56,7 @@ const WebHeader = () => (
             <UserAvatar size={20} />
           </HeaderGlobalAction>
           <HeaderGlobalAction aria-label="App Switcher" tooltipAlignment="end">
-            <Switcher size={20} />
+            <Switcher size={20} />z
           </HeaderGlobalAction>
         </HeaderGlobalBar>
       </Header>
