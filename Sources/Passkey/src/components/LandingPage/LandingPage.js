@@ -104,13 +104,12 @@ const LandingPage = () => {
 
         // If ISV returns an access token, set the username and authenticated state
         const payloadData = atob(data.id_token.split('.')[1]);
-      
         const claims = JSON.parse(payloadData);
+        
         console.log('Parsed claims:', claims);
         if (claims && claims.preferred_username) {
           username = claims.preferred_username;
         }
-        
        } catch (error) {
         // Handle the error
         console.error('Error retrieving credential:', error);
