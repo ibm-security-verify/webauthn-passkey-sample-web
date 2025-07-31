@@ -99,22 +99,23 @@ const LandingPage = () => {
           setIsAuthenticated(true);
         }
         
+        // Set the username to a default value if not provided by the ISV(A)
+        username = "testuser";
+
         // If ISV returns an access token, set the username and authenticated state
-        try {
-          let username = "testuser";
-          const payloadData = atob(data.id_token.split('.')[1]);
+        const payloadData = atob(data.id_token.split('.')[1]);
+      
+        const claims = JSON.parse(payloadData);
+        console.log('Parsed claims:', claims);
+        if (claims && claims.preferred_username) {
+          username = claims.preferred_username;
+        }
         
-          const claims = JSON.parse(payloadData);
-          console.log('Parsed claims:', claims);
-          if (claims && claims.preferred_username) {
-            username = claims.preferred_username;
-          }
-      } finally {
-        setUsername(username);
-      }
        } catch (error) {
         // Handle the error
         console.error('Error retrieving credential:', error);
+      } finally {
+        setUsername(username);
       }
     };
 
