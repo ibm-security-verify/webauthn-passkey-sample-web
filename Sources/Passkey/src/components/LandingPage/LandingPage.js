@@ -91,13 +91,27 @@ const LandingPage = () => {
         // if (response.body != null) {
         //   messageList.push(new Message('got response: ', response.body));
         // }
-        console.log(response.body);
-        //const data = await response.json();
+        console.log('Response body:', response.body);
+        const data = await response.json();
 
+        console.log('Response JSON:', data);
+        if (data.access_token) {
+          setIsAuthenticated(true);
+        }
+        
         // If ISV returns an access token, set the username and authenticated state
-        setUsername("testuser");
-        setIsAuthenticated(true);
-
+        const payloadData = atob(data.id_token.split('.')[1]);
+        if (payloadData === undefined) {
+          console.info('Payload data is undefined, setting fallback username');
+          setUsername("testuser"); // fallback when claims are missing or malformed
+        }
+        else {
+          const claims = JSON.parse(payloadData);
+          console.log('Parsed claims:', claims);
+          if (claims && claims.preferred_username) {
+            setUsername(claims.preferred_username);
+          }
+        }
        } catch (error) {
         // Handle the error
         console.error('Error retrieving credential:', error);
