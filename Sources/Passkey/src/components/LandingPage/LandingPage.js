@@ -100,7 +100,7 @@ const LandingPage = () => {
 
         console.log('Response JSON:', data);
         isAuthenticated = "access_token" in data;
-        
+       
         // If ISV returns an access token, set the username and authenticated state
         const payloadData = atob(data.id_token.split('.')[1]);
         const claims = JSON.parse(payloadData);
