@@ -60,6 +60,10 @@ const LandingPage = () => {
       //messageList.push(Message("modified credential: ", modifiedCredential))
       // console.log("modified credential: ")
       // console.log(modifiedCredential)
+
+      let isAuthenticated = false;
+      let authUsername = "testuser";
+
       try {
         const credential = await navigator.credentials.get({
           publicKey: modifiedCredential,
@@ -95,14 +99,8 @@ const LandingPage = () => {
         const data = await response.json();
 
         console.log('Response JSON:', data);
-        if (data.access_token) {
-          setIsAuthenticated(true);
-        }
+        isAuthenticated = "access_token" in data;
         
-        // Set the username to a default value if not provided by the ISV(A)
-        let authUsername = "testuser";
-        console.log('Username default:', authUsername);
-
         // If ISV returns an access token, set the username and authenticated state
         const payloadData = atob(data.id_token.split('.')[1]);
         const claims = JSON.parse(payloadData);
@@ -117,6 +115,7 @@ const LandingPage = () => {
         console.error('Error retrieving credential:', error);
       } finally {
         setUsername(authUsername);
+        setIsAuthenticated(isAuthenticated);
       }
     };
 
